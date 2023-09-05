@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import reactLogo from './assets/react.svg';
+
 import './App.css';
+import { Wrapper } from './styled';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,6 +26,10 @@ function App() {
       <p className='read-the-docs'>
         Click on the Vite and React logos to learn more
       </p>
+
+      <Wrapper data-text-red>
+        <p>LINARIA WRAPPER</p>
+      </Wrapper>
     </React.Fragment>
   );
 }
