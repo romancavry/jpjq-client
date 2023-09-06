@@ -1,3 +1,5 @@
+import path from 'path';
+
 import { defineConfig } from 'vite';
 
 import react from '@vitejs/plugin-react';
@@ -11,4 +13,11 @@ export default defineConfig({
       sourceMap: true,
     }),
   ],
+  resolve: {
+    alias: {
+      assets: path.resolve(__dirname, './src/assets'),
+      core: path.resolve(__dirname, './src/core'),
+      screens: path.resolve(__dirname, './src/screens'),
+    },
+  },
 });
