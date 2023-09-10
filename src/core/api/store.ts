@@ -14,7 +14,7 @@ import { createApi } from './createApi';
 
 const preloadedState = {};
 
-export const rootApi = createApi({ reducerPath: 'aboba' });
+export const rootApi = createApi({ reducerPath: 'app' });
 
 const rootReducer = combineReducers({
   [rootApi.reducerPath]: rootApi.reducer,

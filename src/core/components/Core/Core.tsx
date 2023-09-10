@@ -2,18 +2,18 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { ErrorBoundary } from 'core/components';
-import { defaultVariables, globalVariables } from 'core/variables';
 
-// import '@erg/uikit/dist/fonts/index.css';
+import { variables, globals } from 'uikit/theme';
+import { AlertProvider } from 'uikit/molecules';
 
 const Core: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <React.Fragment>
     <Helmet>
-      <body className={`${globalVariables} ${defaultVariables}`} />
+      <body className={`${globals} ${variables}`} />
     </Helmet>
 
     <ErrorBoundary>
-      {/* <AlertProvider /> */}
+      <AlertProvider />
 
       {children}
     </ErrorBoundary>
