@@ -25,6 +25,7 @@
       "assets/*": ["src/assets/*"],
       "core/*": ["src/core/*"],
       "screens/*": ["src/screens/*"],
+      "utils/*": ["src/utils/*"],
     },
   },
   "include": ["src"],

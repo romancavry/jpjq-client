@@ -1,7 +1,5 @@
 // @ts-ignore
-import { createBrowserRouter, createRender, ElementsRenderer } from 'found';
-
-import { createRouteConfig } from 'core/routes/routeConfig';
+import { createConnectedRouter, createRender, ElementsRenderer } from 'found';
 
 import { Error404 } from 'screens/Errors';
 
@@ -27,9 +25,7 @@ const initialize = () => {
   }
 };
 
-const Router = createBrowserRouter({
-  routeConfig: createRouteConfig(),
-
+const Router = createConnectedRouter({
   render: createRender({
     renderError: ({ error }) => {
       initialize();
