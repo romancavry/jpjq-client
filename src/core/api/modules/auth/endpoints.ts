@@ -3,21 +3,42 @@ import type { User } from './types';
 
 export const getAuthEndpoints = (
   builder: Builder,
-  options: ApiOptions,
-  api: BaseApi,
+  // eslint-disable-next-line no-unused-vars
+  _options: ApiOptions,
+  // eslint-disable-next-line no-unused-vars
+  _api: BaseApi,
 ) => ({
-  login: builder.mutation<void, Partial<User>>({
+  register: builder.mutation<void, Partial<User>>({
     query: data => ({
-      path: '/login',
+      host: 'http://127.0.0.1:1337',
+      path: '/auth/register',
       method: 'POST',
       data,
     }),
   }),
 
+  login: builder.mutation<void, Partial<User>>({
+    query: data => ({
+      host: 'http://127.0.0.1:1337',
+      path: '/auth/login',
+      method: 'POST',
+      data,
+    }),
+  }),
+
+  logout: builder.query<void, void>({
+    query: () => ({
+      host: 'http://127.0.0.1:1337',
+      path: '/auth/logout',
+      method: 'GET',
+    }),
+  }),
+
   getUser: builder.query<User, void>({
     query: () => ({
+      host: 'http://127.0.0.1:1337',
+      path: '/auth/user',
       method: 'GET',
-      path: '/user',
     }),
   }),
 

@@ -1,3 +1,6 @@
 export default {
-  login: 'login',
+  home: '/',
+  login: '/login',
+  logout: '/logout',
+  my: '/my',
 };

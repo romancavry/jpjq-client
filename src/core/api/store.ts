@@ -10,6 +10,7 @@ import queryMiddleware from 'farce/queryMiddleware';
 
 import { createRouteConfig } from 'core/routes/routeConfig';
 
+import authApi from './modules/auth/reducer';
 import { createApi } from './createApi';
 
 const preloadedState = {};
@@ -18,12 +19,14 @@ export const rootApi = createApi({ reducerPath: 'app' });
 
 const rootReducer = combineReducers({
   [rootApi.reducerPath]: rootApi.reducer,
+  [authApi.reducerPath]: authApi.reducer,
   found: foundReducer,
 });
 
 export const store = configureStore({
   reducer: rootReducer,
-  middleware: getDefaultMiddleware => getDefaultMiddleware(),
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(authApi.middleware),
   preloadedState,
   devTools: process.env.NODE_ENV !== 'production',
   enhancers: [

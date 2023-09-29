@@ -1,23 +1,22 @@
-import type { RouteMatch } from 'found';
+import { RouteMatch } from 'found';
 
 import authApi from 'core/api/modules/auth/reducer';
 import routeNames from 'core/routes/routeNames';
 
-import App from './App';
-
 export default {
-  Component: App,
   getData: async ({ context, router }: RouteMatch) => {
     const {
-      store: { getState },
+      store: { dispatch, getState },
     } = context;
 
     const authorized = authApi.endpoints.getUser.select()(getState()).isSuccess;
 
-    if (!authorized) {
-      router.replace({
-        pathname: routeNames.login,
-      });
+    if (authorized) {
+      await authApi.endpoints.logout.initiate()(dispatch, getState, null);
     }
+
+    router.replace({
+      pathname: routeNames.login,
+    });
   },
 };

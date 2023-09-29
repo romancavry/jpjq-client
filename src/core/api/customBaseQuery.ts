@@ -5,8 +5,6 @@ import snakecaseKeys from 'snakecase-keys';
 import type { AxiosRequestConfig, AxiosError } from 'axios';
 import type { BaseQueryFn } from '@reduxjs/toolkit/query';
 
-import { refreshToken } from './interceptors';
-
 export type RequestErrorItem = {
   code: string;
   msg?: string;
@@ -39,9 +37,6 @@ export const customBaseQuery = (): BaseQueryFn<
   unknown
 > => {
   const axiosInstance = axios.create();
-  axiosInstance.interceptors.response.use(undefined, (error: AxiosError) =>
-    refreshToken({ error, axiosInstance }),
-  );
 
   return async ({
     host,
@@ -83,9 +78,6 @@ export const customBaseQuery = (): BaseQueryFn<
       const transformedResult =
         // @ts-ignore
         err.response?.data && camelcaseKeys(err.response?.data, { deep: true });
-
-      // eslint-disable-next-line no-console
-      console.error(err);
 
       return {
         error: {
