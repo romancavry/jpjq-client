@@ -23,6 +23,7 @@
 
     "paths": {
       "assets/*": ["src/assets/*"],
+      "components/*": ["src/components/*"],
       "core/*": ["src/core/*"],
       "screens/*": ["src/screens/*"],
       "uikit/*": ["src/uikit/*"],

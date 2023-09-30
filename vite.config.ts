@@ -18,6 +18,7 @@ export default defineConfig({
   resolve: {
     alias: {
       assets: path.resolve(__dirname, './src/assets'),
+      components: path.resolve(__dirname, './src/components'),
       core: path.resolve(__dirname, './src/core'),
       screens: path.resolve(__dirname, './src/screens'),
       uikit: path.resolve(__dirname, './src/uikit'),

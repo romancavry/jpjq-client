@@ -5,6 +5,7 @@ import { COLOR, TEXT, TRANSITION } from 'uikit/vars';
 export const VARIANTS = {
   primary: 'primary',
   outline: 'outline',
+  ghost: 'ghost',
 };
 
 export const Content = styled.div`
@@ -91,6 +92,31 @@ export const Wrapper = styled.button`
     &:disabled {
       color: var(${COLOR.PALE});
       border-color: var(${COLOR.PALE});
+    }
+  }
+
+  &[data-variant='${VARIANTS.ghost}'] {
+    justify-content: center;
+
+    background: transparent;
+    color: var(${COLOR.MAIN});
+
+    ${Content} {
+      margin: 0;
+      padding: 0;
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 0.7;
+    }
+
+    &:active {
+      color: var(${COLOR.PALE});
+    }
+
+    &:disabled {
+      color: var(${COLOR.PALE});
     }
   }
 `;

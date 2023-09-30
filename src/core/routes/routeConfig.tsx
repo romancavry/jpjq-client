@@ -14,7 +14,12 @@ import routeNames from './routeNames';
 export const createRouteConfig = () =>
   makeRouteConfig(
     <Route>
-      <Route path={routeNames.home} Component={Core} getData={loadAuth}>
+      <Route
+        allowAsIndex
+        path={routeNames.home}
+        Component={Core}
+        getData={loadAuth}
+      >
         <Route defer path={routeNames.login} {...Auth} />
 
         <Route defer path={routeNames.logout} {...Logout} />

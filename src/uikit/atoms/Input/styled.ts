@@ -63,7 +63,7 @@ export const controlStyle = `
 `;
 
 const inputHover = `
-  border-color: var(${COLOR.PALE});
+  border-color: var(${COLOR.ACCENT});
   background: var(${COLOR.WHITE});
   cursor: text;
 `;
@@ -78,7 +78,7 @@ export const GroupControl = styled.div`
   width: 100%;
   min-height: 32px;
 
-  border: 1px solid var(${COLOR.ACCENT});
+  border: 1px solid var(${COLOR.PALE});
   border-radius: 5px;
 
   transition: 0.2s ease-in-out;
