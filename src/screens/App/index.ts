@@ -1,6 +1,6 @@
 import type { RouteMatch } from 'found';
 
-import authApi from 'core/api/modules/auth/reducer';
+import authApi from 'api/modules/auth/reducer';
 import routeNames from 'core/routes/routeNames';
 
 import App from './App';

@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import { resolver } from 'found';
 
-import { store } from 'core/api/store';
+import { store } from 'api/store';
 
 import { Router } from './components';
 

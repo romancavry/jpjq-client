@@ -1,4 +1,4 @@
-import { createApi } from 'core/api/createApi';
+import { createApi } from 'api/createApi';
 
 const authApi = createApi({ reducerPath: 'authApi' });
 
