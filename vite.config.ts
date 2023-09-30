@@ -21,6 +21,7 @@ export default defineConfig({
       assets: path.resolve(__dirname, './src/assets'),
       components: path.resolve(__dirname, './src/components'),
       core: path.resolve(__dirname, './src/core'),
+      modules: path.resolve(__dirname, './src/modules'),
       screens: path.resolve(__dirname, './src/screens'),
       uikit: path.resolve(__dirname, './src/uikit'),
       utils: path.resolve(__dirname, './src/utils'),

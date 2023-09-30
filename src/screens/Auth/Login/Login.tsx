@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Form as FinalForm, Field } from 'react-final-form';
 
-import type { AuthValues } from 'api/modules';
+import type { AuthValues } from 'modules';
 
 import { Button } from 'uikit/atoms';
 

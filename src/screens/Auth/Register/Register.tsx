@@ -1,12 +1,15 @@
 import * as React from 'react';
 import { Form as FinalForm, Field } from 'react-final-form';
 
-import type { AuthValues } from 'api/modules';
+import authApi from 'modules/auth/reducer';
+import type { AuthValues } from 'modules/auth';
 
 import { Button } from 'uikit/atoms';
+import { alert } from 'uikit/molecules';
 
 import { Input } from 'components/Form';
 
+import validation from '../validation';
 import {
   Title,
   TypeWrapper as Wrapper,
@@ -20,13 +23,31 @@ interface RegisterProps {
 }
 
 const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
-  const onRegister = React.useCallback((values: AuthValues) => {
-    try {
-      console.log('on Register values: ', values);
-    } catch (err) {
-      // ...
-    }
-  }, []);
+  const [register, { isLoading }] = authApi.useRegisterMutation();
+
+  const onRegister = React.useCallback(
+    async (values: AuthValues) => {
+      try {
+        const { username, password } = values;
+
+        await register({ username, password }).unwrap();
+
+        alert.success({
+          title: 'Вы успешно зарегистрировались',
+        });
+      } catch (err) {
+        // @ts-ignore
+        const { errors } = err.data;
+
+        errors.forEach((error: any) => {
+          alert.error({
+            title: error.message,
+          });
+        });
+      }
+    },
+    [register],
+  );
 
   return (
     <FinalForm
@@ -35,7 +56,8 @@ const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
         password: '',
       }}
       onSubmit={onRegister}
-      render={({ handleSubmit }) => (
+      validate={validation()}
+      render={({ handleSubmit, valid }) => (
         <Wrapper>
           <Title>Регистрация</Title>
 
@@ -54,7 +76,12 @@ const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
             />
           </Inputs>
 
-          <Button onClick={handleSubmit} className={submitButtonStyle}>
+          <Button
+            onClick={handleSubmit}
+            className={submitButtonStyle}
+            loading={isLoading}
+            disabled={!valid}
+          >
             Зарегистрироваться
           </Button>
 

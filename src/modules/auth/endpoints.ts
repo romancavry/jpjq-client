@@ -1,4 +1,7 @@
-import type { BaseApi, ApiOptions, Builder } from '../../types';
+import type { BaseApi, ApiOptions, Builder } from 'api/types';
+
+import type { AuthValues } from 'modules/auth/types';
+
 import type { User } from './types';
 
 export const getAuthEndpoints = (
@@ -8,7 +11,7 @@ export const getAuthEndpoints = (
   // eslint-disable-next-line no-unused-vars
   _api: BaseApi,
 ) => ({
-  register: builder.mutation<void, Partial<User>>({
+  register: builder.mutation<void, AuthValues>({
     query: data => ({
       host: 'http://127.0.0.1:1337',
       path: '/auth/register',
@@ -17,7 +20,7 @@ export const getAuthEndpoints = (
     }),
   }),
 
-  login: builder.mutation<void, Partial<User>>({
+  login: builder.mutation<void, AuthValues>({
     query: data => ({
       host: 'http://127.0.0.1:1337',
       path: '/auth/login',

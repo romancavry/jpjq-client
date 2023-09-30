@@ -10,7 +10,7 @@ import queryMiddleware from 'farce/queryMiddleware';
 
 import { createRouteConfig } from 'core/routes/routeConfig';
 
-import authApi from './modules/auth/reducer';
+import authApi from '../modules/auth/reducer';
 import { createApi } from './createApi';
 
 const preloadedState = {};
