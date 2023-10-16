@@ -1,5 +1,8 @@
 import * as React from 'react';
+import { useRouter } from 'found';
 import { Form as FinalForm, Field } from 'react-final-form';
+
+import routeNames from 'core/routes/routeNames';
 
 import authApi from 'modules/auth/reducer';
 import type { AuthValues } from 'modules/auth';
@@ -23,6 +26,8 @@ interface RegisterProps {
 }
 
 const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
+  const { router } = useRouter();
+
   const [register, { isLoading }] = authApi.useRegisterMutation();
 
   const onRegister = React.useCallback(
@@ -35,6 +40,10 @@ const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
         alert.success({
           title: 'Вы успешно зарегистрировались',
         });
+
+        router.replace({
+          pathname: routeNames.my,
+        });
       } catch (err) {
         // @ts-ignore
         const { errors } = err.data;
@@ -46,7 +55,7 @@ const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
         });
       }
     },
-    [register],
+    [register, router],
   );
 
   return (

@@ -13,4 +13,6 @@ export default {
 
   WHITE: '--color-white',
   BLACK: '--color-black',
+
+  GRADIENT_ACCENT: '--gradient-accent',
 };

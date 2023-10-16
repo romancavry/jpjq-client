@@ -3,8 +3,8 @@ import { css } from '@linaria/core';
 import { TRANSITION, COLOR } from '../vars';
 
 export default css`
-  ${COLOR.ACCENT}: #2094F0;
-  ${COLOR.ACCENT_LIGHT}: #B5DDFD;
+  ${COLOR.ACCENT}: #0d7473;
+  ${COLOR.ACCENT_LIGHT}: #7aa8a9;
 
   ${COLOR.MAIN}: #2E2A36;
 
@@ -18,5 +18,10 @@ export default css`
   ${COLOR.WHITE}: #FFFFFF;
   ${COLOR.BLACK}: #000000;
 
+  ${COLOR.GRADIENT_ACCENT}: linear-gradient(
+    0deg,
+    #FFFFFF 0%,
+    #0d7473 100%
+  );
   ${TRANSITION.MAIN}: 0.2s ease-in-out;
 `;

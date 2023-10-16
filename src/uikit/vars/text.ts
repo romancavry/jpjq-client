@@ -27,6 +27,13 @@ const H3 = `
   line-height: 30px;
 `;
 
+const H4 = `
+  ${PRIMARY_FONT};
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+`;
+
 const MAIN = `
   ${PRIMARY_FONT};
   font-weight: 500;
@@ -57,6 +64,7 @@ export default {
   H1,
   H2,
   H3,
+  H4,
 
   MAIN,
   MAIN_BOLD,
