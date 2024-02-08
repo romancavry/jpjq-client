@@ -3,15 +3,19 @@ import path from 'path';
 import { defineConfig } from 'vite';
 
 import react from '@vitejs/plugin-react';
-import linaria from '@linaria/vite';
+import wyw from '@wyw-in-js/vite';
 import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    linaria({
+    wyw({
       sourceMap: true,
+      include: ['**/*.{ts,tsx}'],
+      babelOptions: {
+        presets: ['@babel/preset-typescript', '@babel/preset-react'],
+      },
     }),
     svgr(),
   ],

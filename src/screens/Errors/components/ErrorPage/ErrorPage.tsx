@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { variables, globals } from 'uikit/theme';
+import { variables } from 'uikit/theme';
 
 import { Wrapper, Text, Actions } from './styled';
 
@@ -21,7 +21,7 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ title, msg, canUpdatePage }) => {
       <Text>{title}</Text>
 
       <Helmet>
-        <body className={`${globals} ${variables}`} />
+        <body className={variables} />
         <title>{title}</title>
       </Helmet>
 
