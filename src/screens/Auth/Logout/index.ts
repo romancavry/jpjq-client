@@ -1,6 +1,6 @@
 import { RouteMatch } from 'found';
 
-import authApi from 'modules/auth/reducer';
+import { api } from 'api/index';
 import routeNames from 'core/routes/routeNames';
 
 export default {
@@ -9,10 +9,10 @@ export default {
       store: { dispatch, getState },
     } = context;
 
-    const authorized = authApi.endpoints.getUser.select()(getState()).isSuccess;
+    const authorized = api.endpoints.getUser.select()(getState()).isSuccess;
 
     if (authorized) {
-      await authApi.endpoints.logout.initiate()(dispatch, getState, null);
+      await api.endpoints.logout.initiate()(dispatch, getState, null);
     }
 
     router.replace({

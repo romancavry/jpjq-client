@@ -4,13 +4,15 @@ import { Form as FinalForm, Field } from 'react-final-form';
 
 import routeNames from 'core/routes/routeNames';
 
-import authApi from 'modules/auth/reducer';
+import { api } from 'api/index';
 import type { AuthValues } from 'modules/auth';
 
 import { Button } from 'uikit/atoms';
 import { alert } from 'uikit/molecules';
 
 import { Input } from 'components/Form';
+
+import { getError } from 'utils/errorUtils';
 
 import validation from '../validation';
 import {
@@ -28,7 +30,7 @@ interface LoginProps {
 const Login: React.FC<LoginProps> = ({ onRegisterPush }) => {
   const { router } = useRouter();
 
-  const [login, { isLoading }] = authApi.useLoginMutation();
+  const [login, { isLoading }] = api.useLoginMutation();
 
   const onLogin = React.useCallback(
     async (values: AuthValues) => {
@@ -45,13 +47,10 @@ const Login: React.FC<LoginProps> = ({ onRegisterPush }) => {
           pathname: routeNames.my,
         });
       } catch (err) {
-        // @ts-ignore
-        const { errors } = err.data;
+        const error = getError(err);
 
-        errors.forEach((error: any) => {
-          alert.error({
-            title: error.message,
-          });
+        alert.error({
+          title: error.msg,
         });
       }
     },

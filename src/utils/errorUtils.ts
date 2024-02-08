@@ -2,16 +2,16 @@ import { HttpError } from 'found';
 import type { AxiosError } from 'axios';
 
 export const ERROR_CODES = {
-  NOT_FOUND: 'not_found',
+  INVALID_CREDENTIALS: 'INVALID_CREDENTIALS',
 };
 
 export const getError = (err: any) => {
-  const { code } = err;
+  const { code } = err.data;
   let msg = null;
 
   switch (code) {
-    case ERROR_CODES.NOT_FOUND:
-      msg = 'Не найдено.';
+    case ERROR_CODES.INVALID_CREDENTIALS:
+      msg = 'Неверные данные для входа.';
       break;
     default:
       console.log(err); // eslint-disable-line

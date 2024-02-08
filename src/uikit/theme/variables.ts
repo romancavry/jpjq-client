@@ -3,8 +3,8 @@ import { css } from '@linaria/core';
 import { TRANSITION, COLOR } from '../vars';
 
 export default css`
-  ${COLOR.ACCENT}: #0d7473;
-  ${COLOR.ACCENT_LIGHT}: #7aa8a9;
+  ${COLOR.ACCENT}: #00BCD4;
+  ${COLOR.ACCENT_LIGHT}: #55CEF4;
 
   ${COLOR.MAIN}: #2E2A36;
 

@@ -1,7 +1,7 @@
 import type { RouteMatch } from 'found';
 import type { AxiosError } from 'axios';
 
-import authApi from 'modules/auth/reducer';
+import { api } from 'api/index';
 import routeNames from 'core/routes/routeNames';
 
 export default async function loadAuth({ context, router }: RouteMatch) {
@@ -10,14 +10,12 @@ export default async function loadAuth({ context, router }: RouteMatch) {
   } = context;
 
   try {
-    const authNotAttempted = authApi.endpoints.getUser.select()(
+    const authNotAttempted = api.endpoints.getUser.select()(
       getState(),
     ).isUninitialized;
 
     if (authNotAttempted) {
-      await authApi.endpoints.getUser
-        .initiate()(dispatch, getState, null)
-        .unwrap();
+      await api.endpoints.getUser.initiate()(dispatch, getState, null).unwrap();
     }
   } catch (_e) {
     const error = _e as AxiosError;

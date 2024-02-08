@@ -4,7 +4,7 @@ import { Form as FinalForm, Field } from 'react-final-form';
 
 import routeNames from 'core/routes/routeNames';
 
-import authApi from 'modules/auth/reducer';
+import { api } from 'api/index';
 import type { AuthValues } from 'modules/auth';
 
 import { Button } from 'uikit/atoms';
@@ -28,7 +28,7 @@ interface RegisterProps {
 const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
   const { router } = useRouter();
 
-  const [register, { isLoading }] = authApi.useRegisterMutation();
+  const [register, { isLoading }] = api.useRegisterMutation();
 
   const onRegister = React.useCallback(
     async (values: AuthValues) => {
