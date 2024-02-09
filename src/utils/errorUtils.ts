@@ -1,5 +1,4 @@
-import { HttpError } from 'found';
-import type { AxiosError } from 'axios';
+import type { ErrorResponse } from 'react-router-dom';
 
 export const ERROR_CODES = {
   INVALID_CREDENTIALS: 'INVALID_CREDENTIALS',
@@ -24,8 +23,8 @@ export const getError = (err: any) => {
   };
 };
 
-export const getRenderError = (err: AxiosError) => {
-  if (err?.response?.status && ![401, 409].includes(err?.response?.status)) {
-    throw new HttpError(err.response.status);
+export const getRenderError = (err: ErrorResponse) => {
+  if (err?.status && ![401].includes(err.status)) {
+    throw new Response('', { status: err.status });
   }
 };

@@ -1,8 +1,5 @@
 import * as React from 'react';
-import { useRouter } from 'found';
 import { Form as FinalForm, Field } from 'react-final-form';
-
-import routeNames from 'core/routes/routeNames';
 
 import { api } from 'api/index';
 import type { AuthValues } from 'modules/auth';
@@ -12,22 +9,20 @@ import { alert } from 'uikit/molecules';
 
 import { Input } from 'components/Form';
 
-import validation from '../validation';
+import validation from '../../validation';
 import {
   Title,
   TypeWrapper as Wrapper,
   Text,
   Inputs,
   submitButtonStyle,
-} from '../styled';
+} from '../../styled';
 
 interface RegisterProps {
   onLoginPush: () => void;
 }
 
 const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
-  const { router } = useRouter();
-
   const [register, { isLoading }] = api.useRegisterMutation();
 
   const onRegister = React.useCallback(
@@ -40,10 +35,6 @@ const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
         alert.success({
           title: 'Вы успешно зарегистрировались',
         });
-
-        router.replace({
-          pathname: routeNames.my,
-        });
       } catch (err) {
         // @ts-ignore
         const { errors } = err.data;
@@ -55,7 +46,7 @@ const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
         });
       }
     },
-    [register, router],
+    [register],
   );
 
   return (

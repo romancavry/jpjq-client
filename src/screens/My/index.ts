@@ -1,3 +1,7 @@
+import type { RouteProps } from 'react-router-dom';
+
+import My from './My';
+
 export default {
-  getComponent: () => import('./My').then(c => c.default),
-};
+  Component: My,
+} as RouteProps;

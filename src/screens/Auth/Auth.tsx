@@ -1,12 +1,10 @@
 import * as React from 'react';
 
-import Login from './Login/Login';
-import Register from './Register/Register';
-
+import { Login, Register } from './components';
 import { Wrapper } from './styled';
 
 const Auth = () => {
-  const [type, setType] = React.useState<'login' | 'register'>('register');
+  const [type, setType] = React.useState<'login' | 'register'>('login');
 
   const onLoginPush = () => {
     setType('login');
