@@ -1,30 +1,35 @@
-import { Route, makeRouteConfig } from 'found';
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from 'react-router-dom';
 
 import { Core } from 'core/components';
 
-import App from 'screens/App';
 import Auth from 'screens/Auth';
-import Logout from 'screens/Auth/Logout';
+import Errors from 'screens/Errors/Errors';
 import Home from 'screens/Home';
 import My from 'screens/My';
+import Logout from 'screens/Logout';
 
-import { loadAuth } from 'utils/auth';
+import { AuthorizedOnly, loadAuth, UnauthorizedOnly } from 'utils/auth';
 
-import routeNames from './routeNames';
+import routes from './routes';
 
-export const createRouteConfig = () =>
-  makeRouteConfig(
-    <Route>
-      <Route Component={Core} getData={loadAuth}>
-        <Route defer path={routeNames.home} {...Home} />
+export default createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<Core />} errorElement={<Errors />} loader={loadAuth}>
+      <Route path={routes.home} {...Home} />
 
-        <Route defer path={routeNames.login} {...Auth} />
+      <Route Component={UnauthorizedOnly}>
+        <Route path={routes.auth} {...Auth} />
+      </Route>
 
-        <Route defer path={routeNames.logout} {...Logout} />
+      <Route Component={AuthorizedOnly}>
+        <Route path={routes.logout} {...Logout} />
 
-        <Route defer {...App}>
-          <Route defer path={routeNames.my} {...My} />
-        </Route>
+        <Route path={routes.my} {...My} />
       </Route>
     </Route>,
-  );
+  ),
+);

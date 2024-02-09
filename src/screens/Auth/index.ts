@@ -1,21 +1,7 @@
-import type { RouteMatch } from 'found';
+import type { RouteProps } from 'react-router-dom';
 
-import { api } from 'api/index';
-import routeNames from 'core/routes/routeNames';
+import Auth from './Auth';
 
 export default {
-  getComponent: () => import('./Auth').then(c => c.default),
-  getData: async ({ context, router }: RouteMatch) => {
-    const {
-      store: { getState },
-    } = context;
-
-    const authorized = api.endpoints.getUser.select()(getState()).isSuccess;
-
-    if (authorized) {
-      router.replace({
-        pathname: routeNames.home,
-      });
-    }
-  },
-};
+  Component: Auth,
+} as RouteProps;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ClientError } from 'screens/Errors';
+import { ClientError } from 'screens/Errors/components';
 
 interface ErrorBoundaryState {
   hasError: boolean;

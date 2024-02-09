@@ -1,13 +1,13 @@
 import { Provider } from 'react-redux';
-import { resolver } from 'found';
+import { RouterProvider } from 'react-router-dom';
 
 import { store } from 'api/store';
 
-import { Router } from './components';
+import routeConfig from 'core/routes/routeConfig';
 
 const Root = () => (
   <Provider store={store}>
-    <Router resolver={resolver} matchContext={{ store }} />
+    <RouterProvider router={routeConfig} />
   </Provider>
 );
 

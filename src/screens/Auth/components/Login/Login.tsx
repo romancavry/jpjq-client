@@ -1,8 +1,5 @@
 import * as React from 'react';
-import { useRouter } from 'found';
 import { Form as FinalForm, Field } from 'react-final-form';
-
-import routeNames from 'core/routes/routeNames';
 
 import { api } from 'api/index';
 import type { AuthValues } from 'modules/auth';
@@ -14,22 +11,20 @@ import { Input } from 'components/Form';
 
 import { getError } from 'utils/errorUtils';
 
-import validation from '../validation';
+import validation from '../../validation';
 import {
   Title,
   TypeWrapper as Wrapper,
   Text,
   Inputs,
   submitButtonStyle,
-} from '../styled';
+} from '../../styled';
 
 interface LoginProps {
   onRegisterPush: () => void;
 }
 
 const Login: React.FC<LoginProps> = ({ onRegisterPush }) => {
-  const { router } = useRouter();
-
   const [login, { isLoading }] = api.useLoginMutation();
 
   const onLogin = React.useCallback(
@@ -42,10 +37,6 @@ const Login: React.FC<LoginProps> = ({ onRegisterPush }) => {
         alert.success({
           title: 'Вы успешно вошли',
         });
-
-        router.replace({
-          pathname: routeNames.my,
-        });
       } catch (err) {
         const error = getError(err);
 
@@ -54,7 +45,7 @@ const Login: React.FC<LoginProps> = ({ onRegisterPush }) => {
         });
       }
     },
-    [login, router],
+    [login],
   );
 
   return (

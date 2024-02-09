@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Outlet } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
 import { ErrorBoundary } from 'core/components';
@@ -8,7 +9,7 @@ import { AlertProvider } from 'uikit/molecules';
 
 import './globals.css';
 
-const Core: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+const Core = () => (
   <React.Fragment>
     <Helmet>
       <body className={variables} />
@@ -17,7 +18,7 @@ const Core: React.FC<{ children: React.ReactNode }> = ({ children }) => (
     <ErrorBoundary>
       <AlertProvider />
 
-      {children}
+      <Outlet />
     </ErrorBoundary>
   </React.Fragment>
 );

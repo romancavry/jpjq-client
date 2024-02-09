@@ -1,29 +1,16 @@
-import type { RouteMatch } from 'found';
-import type { AxiosError } from 'axios';
-
 import { api } from 'api/index';
-import routeNames from 'core/routes/routeNames';
+import { store } from 'api/store';
 
-export default async function loadAuth({ context, router }: RouteMatch) {
-  const {
-    store: { dispatch, getState },
-  } = context;
+export default async () => {
+  const { dispatch, getState } = store;
 
-  try {
-    const authNotAttempted = api.endpoints.getUser.select()(
-      getState(),
-    ).isUninitialized;
+  const authNotAttempted = api.endpoints.getUser.select()(
+    getState(),
+  ).isUninitialized;
 
-    if (authNotAttempted) {
-      await api.endpoints.getUser.initiate()(dispatch, getState, null).unwrap();
-    }
-  } catch (_e) {
-    const error = _e as AxiosError;
-
-    if (error.status === 401) {
-      router.replace({
-        pathname: routeNames.login,
-      });
-    }
+  if (authNotAttempted) {
+    await api.endpoints.getUser.initiate()(dispatch, getState, null);
   }
-}
+
+  return null;
+};
