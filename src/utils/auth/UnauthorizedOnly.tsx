@@ -1,13 +1,13 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
-import { api } from 'api/index';
-
 import routes from 'core/routes/routes';
 
-const UnauthorizedOnly = () => {
-  const { isSuccess: authorized } = api.endpoints.getUser.useQueryState();
+import { useAuth } from 'modules/auth/hooks';
 
-  if (authorized) {
+const UnauthorizedOnly = () => {
+  const { data } = useAuth();
+
+  if (data) {
     return <Navigate to={routes.my} />;
   }
 
