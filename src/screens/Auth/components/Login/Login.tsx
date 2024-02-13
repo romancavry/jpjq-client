@@ -1,7 +1,11 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Form as FinalForm, Field } from 'react-final-form';
 
 import { api } from 'api/index';
+
+import routes from 'core/routes/routes';
+
 import type { AuthValues } from 'modules/auth';
 
 import { Button } from 'uikit/atoms';
@@ -25,6 +29,8 @@ interface LoginProps {
 }
 
 const Login: React.FC<LoginProps> = ({ onRegisterPush }) => {
+  const navigate = useNavigate();
+
   const [login, { isLoading }] = api.useLoginMutation();
 
   const onLogin = React.useCallback(
@@ -35,8 +41,10 @@ const Login: React.FC<LoginProps> = ({ onRegisterPush }) => {
         await login({ username, password }).unwrap();
 
         alert.success({
-          title: 'Вы успешно вошли',
+          title: 'Вы успешно вошли!',
         });
+
+        navigate(routes.my);
       } catch (err) {
         const error = getError(err);
 
@@ -45,7 +53,7 @@ const Login: React.FC<LoginProps> = ({ onRegisterPush }) => {
         });
       }
     },
-    [login],
+    [login, navigate],
   );
 
   return (

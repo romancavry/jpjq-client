@@ -1,3 +1,4 @@
+import { api } from 'api/index';
 import type { BaseApi, ApiOptions, Builder } from 'api/types';
 
 import type { AuthValues } from 'modules/auth/types';
@@ -27,6 +28,18 @@ export const getAuthEndpoints = (
       method: 'POST',
       data,
     }),
+    onQueryStarted(_, { dispatch, queryFulfilled }) {
+      queryFulfilled.then(({ data }) => {
+        // Update current user
+        dispatch(
+          api.util.upsertQueryData(
+            'getUser',
+            undefined,
+            data as unknown as User,
+          ),
+        );
+      });
+    },
   }),
 
   logout: builder.query<void, void>({
@@ -35,6 +48,18 @@ export const getAuthEndpoints = (
       path: '/auth/logout',
       method: 'GET',
     }),
+    onQueryStarted(_, { dispatch, queryFulfilled }) {
+      queryFulfilled.then(() => {
+        // Remove current user
+        dispatch(
+          api.util.upsertQueryData(
+            'getUser',
+            undefined,
+            null as unknown as User,
+          ),
+        );
+      });
+    },
   }),
 
   getUser: builder.query<User, void>({
@@ -44,23 +69,4 @@ export const getAuthEndpoints = (
       method: 'GET',
     }),
   }),
-
-  // changeCurrentUser: builder.mutation<User, Partial<User>>({
-  //   query: data => ({
-  //     method: 'PATCH',
-  //     path: '/realms/:realmId/user',
-  //     data,
-  //   }),
-  //   onQueryStarted(_, { dispatch, queryFulfilled }) {
-  //     queryFulfilled.then(({ data }) => {
-  //       // update current user entity
-  //       dispatch(api.util.updateQueryData('getUser', undefined, () => data));
-
-  //       // update public user entity
-  //       dispatch(
-  //         api.util.updateQueryData('getPublicUser', data.id, () => data),
-  //       );
-  //     });
-  //   },
-  // }),
 });

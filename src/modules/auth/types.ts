@@ -1,5 +1,9 @@
 export interface User {
-  name: string;
+  id: number;
+  username: string;
+  rememberMeToken: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface AuthValues {

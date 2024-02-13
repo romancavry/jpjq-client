@@ -1,7 +1,7 @@
 import type { RouteProps } from 'react-router-dom';
 
-import Auth from './Auth';
+import Home from './Home';
 
 export default {
-  Component: Auth,
+  element: <Home />,
 } as RouteProps;

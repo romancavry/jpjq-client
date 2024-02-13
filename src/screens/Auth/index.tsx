@@ -1,7 +1,7 @@
 import type { RouteProps } from 'react-router-dom';
 
-import My from './My';
+import Auth from './Auth';
 
 export default {
-  Component: My,
+  element: <Auth />,
 } as RouteProps;

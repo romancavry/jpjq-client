@@ -16,7 +16,7 @@ import { AuthorizedOnly, loadAuth, UnauthorizedOnly } from 'utils/auth';
 
 import routes from './routes';
 
-export default createBrowserRouter(
+const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Core />} errorElement={<Errors />} loader={loadAuth}>
       <Route path={routes.home} {...Home} />
@@ -33,3 +33,5 @@ export default createBrowserRouter(
     </Route>,
   ),
 );
+
+export default router;
