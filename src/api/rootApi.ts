@@ -1,5 +1,15 @@
+import { getAuthEndpoints } from '../modules';
+
 import { createApi } from './createApi';
+import type { ApiOptions, BaseApi } from './types';
 
-const rootApi = createApi({ reducerPath: 'rootApi' });
+const options: ApiOptions = { reducerPath: 'rootApi' };
 
-export default rootApi;
+const rootApi = createApi(options);
+
+export default rootApi.injectEndpoints({
+  endpoints: builder => ({
+    // auth
+    ...getAuthEndpoints(builder, options, rootApi as unknown as BaseApi),
+  }),
+});
