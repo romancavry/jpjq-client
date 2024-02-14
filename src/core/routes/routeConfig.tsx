@@ -9,8 +9,11 @@ import { Core } from 'core/components';
 import Auth from 'screens/Auth';
 import Errors from 'screens/Errors/Errors';
 import Home from 'screens/Home';
-import My from 'screens/My';
 import Logout from 'screens/Logout';
+
+import My from 'screens/My';
+import Accounting from 'screens/My/screens/Accounting';
+import Stock from 'screens/My/screens/Stock';
 
 import { AuthorizedOnly, loadAuth, UnauthorizedOnly } from 'utils/auth';
 
@@ -28,7 +31,10 @@ const router = createBrowserRouter(
       <Route Component={AuthorizedOnly}>
         <Route path={routes.logout} {...Logout} />
 
-        <Route path={routes.my} {...My} />
+        <Route {...My}>
+          <Route path={routes.accounting} {...Accounting} />
+          <Route path={routes.stock} {...Stock} />
+        </Route>
       </Route>
     </Route>,
   ),

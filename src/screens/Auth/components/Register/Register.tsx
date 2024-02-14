@@ -2,9 +2,9 @@ import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Form as FinalForm, Field } from 'react-final-form';
 
-import routes from 'core/routes/routes';
-
 import { api } from 'api/index';
+
+import { DEFAULT_MY_PAGE_ROUTE } from 'modules/common';
 import type { AuthValues } from 'modules/auth';
 
 import { Button } from 'uikit/atoms';
@@ -40,7 +40,7 @@ const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
           title: 'Вы успешно зарегистрировались!',
         });
 
-        navigate(routes.my);
+        navigate(DEFAULT_MY_PAGE_ROUTE);
       } catch (err) {
         // @ts-ignore
         const { errors } = err.data;

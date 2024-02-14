@@ -1,10 +1,10 @@
 import { redirect } from 'react-router-dom';
-import type { ErrorResponse, RouteProps } from 'react-router-dom';
+import type { ErrorResponse, PathRouteProps } from 'react-router-dom';
 
 import { api } from 'api/index';
 import { store } from 'api/store';
 
-import routes from 'core/routes/routes';
+import { AUTH_TYPES, buildAuthPath } from 'modules/auth';
 
 import { getRenderError } from 'utils/errorUtils';
 
@@ -15,11 +15,11 @@ export default {
 
       await api.endpoints.logout.initiate()(dispatch, getState, null).unwrap();
 
-      return redirect(routes.home);
+      return redirect(buildAuthPath({ type: AUTH_TYPES.LOGIN }));
     } catch (error) {
       getRenderError(error as ErrorResponse);
 
       return null;
     }
   },
-} as RouteProps;
+} as PathRouteProps;

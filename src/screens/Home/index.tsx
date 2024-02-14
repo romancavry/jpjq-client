@@ -1,7 +1,7 @@
-import type { RouteProps } from 'react-router-dom';
+import type { PathRouteProps } from 'react-router-dom';
 
 import Home from './Home';
 
 export default {
   element: <Home />,
-} as RouteProps;
+} as PathRouteProps;

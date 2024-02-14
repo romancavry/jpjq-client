@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 
-import routes from 'core/routes/routes';
-
 import { AUTH_TYPES, buildAuthPath } from 'modules/auth';
 import { useAuth } from 'modules/auth/hooks';
+import { DEFAULT_MY_PAGE_ROUTE } from 'modules/common';
 
 import { Button } from 'uikit/atoms';
 
@@ -31,7 +30,11 @@ const Home = () => {
         <Subtitle>Keep it clever</Subtitle>
 
         <Link
-          to={data ? routes.my : buildAuthPath({ type: AUTH_TYPES.LOGIN })}
+          to={
+            data
+              ? DEFAULT_MY_PAGE_ROUTE
+              : buildAuthPath({ type: AUTH_TYPES.LOGIN })
+          }
           className={linkStyle}
         >
           <Button>Начать</Button>
@@ -40,7 +43,11 @@ const Home = () => {
         <Register>
           Нет аккаунта?{' '}
           <Link
-            to={data ? routes.my : buildAuthPath({ type: AUTH_TYPES.REGISTER })}
+            to={
+              data
+                ? DEFAULT_MY_PAGE_ROUTE
+                : buildAuthPath({ type: AUTH_TYPES.REGISTER })
+            }
           >
             Регистрация
           </Link>

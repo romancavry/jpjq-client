@@ -1,7 +1,7 @@
 import type { PathRouteProps } from 'react-router-dom';
 
-import Auth from './Auth';
+import Stock from './Stock';
 
 export default {
-  element: <Auth />,
+  element: <Stock />,
 } as PathRouteProps;

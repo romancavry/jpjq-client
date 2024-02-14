@@ -2,5 +2,7 @@ export default {
   home: '/',
   auth: '/auth/:type',
   logout: '/logout',
-  my: '/my',
+
+  accounting: '/my/accounting',
+  stock: '/my/stock',
 };

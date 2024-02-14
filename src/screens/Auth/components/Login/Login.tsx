@@ -4,8 +4,7 @@ import { Form as FinalForm, Field } from 'react-final-form';
 
 import { api } from 'api/index';
 
-import routes from 'core/routes/routes';
-
+import { DEFAULT_MY_PAGE_ROUTE } from 'modules/common';
 import type { AuthValues } from 'modules/auth';
 
 import { Button } from 'uikit/atoms';
@@ -43,7 +42,7 @@ const Login: React.FC<LoginProps> = ({ onRegisterPush }) => {
           title: 'Вы успешно вошли!',
         });
 
-        navigate(routes.my);
+        navigate(DEFAULT_MY_PAGE_ROUTE);
       } catch (err) {
         const error = getError(err);
 

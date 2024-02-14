@@ -7,7 +7,9 @@ export const Wrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  padding: 30px;
+  padding: 15px 20px;
+
+  border-bottom: 1px solid var(${COLOR.PALE});
 `;
 
 export const User = styled.div`
@@ -18,5 +20,5 @@ export const User = styled.div`
 
 export const Name = styled.p`
   ${TEXT.MAIN};
-  color: var(${COLOR.BLACK});
+  color: var(${COLOR.MAIN});
 `;
