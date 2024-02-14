@@ -1,7 +1,7 @@
 import { css } from '@linaria/core';
 import { styled } from '@linaria/react';
 
-import { COLOR, TEXT } from 'uikit/vars';
+import { COLOR, MEDIA, TEXT } from 'uikit/vars';
 
 export const Wrapper = styled.div`
   overflow: hidden;
@@ -42,8 +42,17 @@ export const Title = styled.h1`
   margin: 0 auto 8px;
   width: fit-content;
 
-  ${TEXT.H1};
+  // TEXT.H1, only font-size is changed
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 48px;
+
+  font-size: 28px;
   color: var(${COLOR.MAIN});
+
+  @media (min-width: ${MEDIA.MOBILE_1}) {
+    ${TEXT.H1};
+  }
 `;
 
 export const Subtitle = styled.p`
