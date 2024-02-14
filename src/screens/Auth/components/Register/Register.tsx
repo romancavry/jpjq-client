@@ -1,5 +1,8 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Form as FinalForm, Field } from 'react-final-form';
+
+import routes from 'core/routes/routes';
 
 import { api } from 'api/index';
 import type { AuthValues } from 'modules/auth';
@@ -11,7 +14,6 @@ import { Input } from 'components/Form';
 
 import validation from '../../validation';
 import {
-  Title,
   TypeWrapper as Wrapper,
   Text,
   Inputs,
@@ -23,6 +25,8 @@ interface RegisterProps {
 }
 
 const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
+  const navigate = useNavigate();
+
   const [register, { isLoading }] = api.useRegisterMutation();
 
   const onRegister = React.useCallback(
@@ -33,8 +37,10 @@ const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
         await register({ username, password }).unwrap();
 
         alert.success({
-          title: 'Вы успешно зарегистрировались',
+          title: 'Вы успешно зарегистрировались!',
         });
+
+        navigate(routes.my);
       } catch (err) {
         // @ts-ignore
         const { errors } = err.data;
@@ -46,7 +52,7 @@ const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
         });
       }
     },
-    [register],
+    [navigate, register],
   );
 
   return (
@@ -59,20 +65,20 @@ const Register: React.FC<RegisterProps> = ({ onLoginPush }) => {
       validate={validation()}
       render={({ handleSubmit, valid }) => (
         <Wrapper>
-          <Title>Регистрация</Title>
-
           <Inputs>
             <Field
               name='username'
+              label='Никнейм'
               component={Input}
-              placeholder='Имя пользователя'
+              placeholder='Введите свой никнейм'
             />
 
             <Field
               name='password'
+              label='Пароль'
               component={Input}
               type='password'
-              placeholder='Пароль'
+              placeholder='Введите пароль'
             />
           </Inputs>
 

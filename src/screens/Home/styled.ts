@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
 
-  background: #2c4a90; // image background color
+  background: var(${COLOR.BG_2});
 `;
 
 export const Background = styled.img`

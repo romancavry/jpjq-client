@@ -1,6 +1,6 @@
 export default {
   home: '/',
-  auth: '/auth',
+  auth: '/auth/:type',
   logout: '/logout',
   my: '/my',
 };

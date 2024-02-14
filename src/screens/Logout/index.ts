@@ -1,9 +1,9 @@
+import { redirect } from 'react-router-dom';
 import type { ErrorResponse, RouteProps } from 'react-router-dom';
 
 import { api } from 'api/index';
 import { store } from 'api/store';
 
-import router from 'core/routes/routeConfig';
 import routes from 'core/routes/routes';
 
 import { getRenderError } from 'utils/errorUtils';
@@ -15,7 +15,7 @@ export default {
 
       await api.endpoints.logout.initiate()(dispatch, getState, null).unwrap();
 
-      return router.navigate(routes.home);
+      return redirect(routes.home);
     } catch (error) {
       getRenderError(error as ErrorResponse);
 

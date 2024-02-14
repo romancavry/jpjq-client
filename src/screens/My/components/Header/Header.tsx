@@ -6,7 +6,9 @@ import { useAuth } from 'modules/auth/hooks';
 
 import { Button } from 'uikit/atoms';
 
-import { Wrapper, Text } from './styled';
+import { Avatar } from 'components/Avatar';
+
+import { Wrapper, User, Name } from './styled';
 
 const Header = () => {
   const { data } = useAuth();
@@ -14,7 +16,13 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <Text>Привет, {user.username}</Text>
+      <User>
+        <Avatar src='https://random.imagecdn.app/50/50' title={user.username} />
+
+        <div>
+          <Name>{user.username}</Name>
+        </div>
+      </User>
 
       <Link to={routes.logout}>
         <Button variant='ghost'>Выйти</Button>

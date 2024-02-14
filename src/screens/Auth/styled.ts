@@ -4,14 +4,37 @@ import { css } from '@linaria/core';
 import { COLOR, TEXT } from 'uikit/vars';
 
 export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
 
-  background: var(${COLOR.ACCENT});
+  background: var(${COLOR.WHITE});
 `;
 
+export const Header = styled.header`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 15px 20px;
+
+  border-bottom: 1px solid var(${COLOR.PALE});
+`;
+
+export const linkStyle = css`
+  transform: translateY(3px);
+
+  svg {
+    transform: rotate(180deg);
+  }
+`;
+
+export const Title = styled.p`
+  ${TEXT.H2};
+  color: var(${COLOR.MAIN});
+`;
+
+export const Main = styled.main``;
+
+// Login & Register
 export const TypeWrapper = styled.div`
   padding: 20px;
   min-width: 350px;
@@ -20,17 +43,11 @@ export const TypeWrapper = styled.div`
   border-radius: 15px;
 `;
 
-export const Title = styled.p`
-  margin-bottom: 30px;
-  ${TEXT.H2};
-  color: var(${COLOR.MAIN});
-`;
-
 export const Inputs = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 `;
 
 export const submitButtonStyle = css`

@@ -17,7 +17,6 @@ import { getError } from 'utils/errorUtils';
 
 import validation from '../../validation';
 import {
-  Title,
   TypeWrapper as Wrapper,
   Text,
   Inputs,
@@ -66,20 +65,20 @@ const Login: React.FC<LoginProps> = ({ onRegisterPush }) => {
       validate={validation()}
       render={({ handleSubmit, valid }) => (
         <Wrapper>
-          <Title>Вход</Title>
-
           <Inputs>
             <Field
               name='username'
+              label='Никнейм'
               component={Input}
-              placeholder='Имя пользователя'
+              placeholder='Введите свой никнейм'
             />
 
             <Field
               name='password'
+              label='Пароль'
               component={Input}
               type='password'
-              placeholder='Пароль'
+              placeholder='Введите пароль'
             />
           </Inputs>
 

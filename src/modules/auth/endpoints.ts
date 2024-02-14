@@ -19,6 +19,18 @@ export const getAuthEndpoints = (
       method: 'POST',
       data,
     }),
+    onQueryStarted(_, { dispatch, queryFulfilled }) {
+      queryFulfilled.then(({ data }) => {
+        // Update current user
+        dispatch(
+          api.util.upsertQueryData(
+            'getUser',
+            undefined,
+            data as unknown as User,
+          ),
+        );
+      });
+    },
   }),
 
   login: builder.mutation<void, AuthValues>({
