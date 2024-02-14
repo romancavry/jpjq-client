@@ -6,23 +6,38 @@ import { useAuth } from 'modules/auth/hooks';
 
 import { Button } from 'uikit/atoms';
 
-import { LendingLines } from 'assets/icons/other';
+import { Market } from 'assets/img';
 
-import { Wrapper, Title, Subtitle, linesStyle } from './styled';
+import {
+  Wrapper,
+  Background,
+  Main,
+  Title,
+  Subtitle,
+  linkStyle,
+  Register,
+} from './styled';
 
 const Home = () => {
   const { data } = useAuth();
 
   return (
     <Wrapper>
-      <LendingLines className={linesStyle} />
+      <Background src={Market} alt='market_background' />
 
-      <Title>JPJQ</Title>
-      <Subtitle>Pretty simple app to prevent family conflicts</Subtitle>
+      <Main>
+        <Title>Cripto accounting</Title>
+        <Subtitle>Keep it clever</Subtitle>
 
-      <Link to={data ? routes.my : routes.auth}>
-        <Button>Let&apos;s go</Button>
-      </Link>
+        <Link to={data ? routes.my : routes.auth} className={linkStyle}>
+          <Button>Get Started</Button>
+        </Link>
+
+        <Register>
+          Нет аккаунта?{' '}
+          <Link to={data ? routes.my : routes.auth}>Регистрация</Link>
+        </Register>
+      </Main>
     </Wrapper>
   );
 };

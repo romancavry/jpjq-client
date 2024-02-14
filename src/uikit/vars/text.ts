@@ -1,16 +1,16 @@
 const FONTS = {
-  OPEN_SANS: 'Open Sans',
+  MAIN: 'Montserrat',
 };
 
 const PRIMARY_FONT = `
-  font-family: ${FONTS.OPEN_SANS};
+  font-family: ${FONTS.MAIN};
 `;
 
 const H1 = `
   ${PRIMARY_FONT};
   font-weight: 500;
-  font-size: 36px;
-  line-height: 52px;
+  font-size: 34px;
+  line-height: 48px;
 `;
 
 const H2 = `
@@ -41,14 +41,21 @@ const MAIN = `
   line-height: 20px;
 `;
 
-const MEDIUM = `
+const MEDIUM_1 = `
   ${PRIMARY_FONT};
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
 `;
 
-const SMALL = `
+const MEDIUM_2 = `
+  ${PRIMARY_FONT};
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+`;
+
+const SMALL_1 = `
   ${PRIMARY_FONT};
   font-weight: 500;
   font-size: 10px;
@@ -69,9 +76,10 @@ export default {
   MAIN,
   MAIN_BOLD,
 
-  MEDIUM,
+  MEDIUM_1,
+  MEDIUM_2,
 
-  SMALL,
+  SMALL_1,
 
   PRIMARY_FONT,
 };

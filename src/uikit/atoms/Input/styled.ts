@@ -25,7 +25,7 @@ export const Label = styled.label`
   margin-bottom: 5px;
   width: 100%;
 
-  ${TEXT.MEDIUM};
+  ${TEXT.MEDIUM_1};
   color: var(${COLOR.MAIN});
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -38,7 +38,7 @@ export const controlStyle = `
 
   border: none;
   
-  ${TEXT.MEDIUM};
+  ${TEXT.MEDIUM_1};
   color: inherit;
   
   background: inherit;

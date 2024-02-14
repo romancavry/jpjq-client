@@ -3,6 +3,7 @@ export default {
   ACCENT_LIGHT: '--color-accent-light',
 
   MAIN: '--color-main',
+  MAIN_PALE: '--color-main-pale',
 
   BG: '--color-bg',
   PALE: '--color-pale',

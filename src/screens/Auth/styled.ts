@@ -39,12 +39,12 @@ export const submitButtonStyle = css`
 `;
 
 export const Text = styled.p`
-  ${TEXT.SMALL};
+  ${TEXT.SMALL_1};
   color: var(${COLOR.MAIN});
   text-align: center;
 
   button {
-    ${TEXT.SMALL};
+    ${TEXT.SMALL_1};
     color: var(${COLOR.ACCENT}) !important;
   }
 `;
