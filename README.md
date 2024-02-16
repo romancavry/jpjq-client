@@ -1,3 +1,15 @@
-# React + TypeScript + Vite + Redux + Linaria
+# JPJQ (juicy private jumbo quirk)
 
-Готовый темплэйт для разработки с настроенным роутингом (react-router v6), no-runtime стилизацией (wyw-in-js, ex-linaria), с линтерами, кастомным uikit и redux-toolkit-rtk-query.
+Проект для личных нужд. Кто его знает, что из него получится..  
+
+### Stack
+* `react`
+* `redux-toolkit (rtk-query)`
+* `react-router (v6)`
+* `wyw-in-js (ex.Linaria)`
+
+### Конфигурация
+* `API_URL` - адрес основного АПИ сервиса
+
+### Запуск сервиса
+`yarn dev`
