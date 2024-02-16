@@ -1,11 +1,11 @@
 import * as React from 'react';
+import { Field, Form as FinalForm } from 'react-final-form';
 import { useNavigate } from 'react-router-dom';
-import { Form as FinalForm, Field } from 'react-final-form';
 
 import { api } from 'api/index';
 
-import { DEFAULT_MY_PAGE_ROUTE } from 'modules/common';
 import type { AuthValues } from 'modules/auth';
+import { DEFAULT_MY_PAGE_ROUTE } from 'modules/common';
 
 import { Button } from 'uikit/atoms';
 import { alert } from 'uikit/molecules';
@@ -14,13 +14,13 @@ import { Input } from 'components/Form';
 
 import { getError } from 'utils/errorUtils';
 
-import validation from '../../validation';
 import {
-  TypeWrapper as Wrapper,
-  Text,
   Inputs,
   submitButtonStyle,
+  Text,
+  TypeWrapper as Wrapper,
 } from '../../styled';
+import validation from '../../validation';
 
 interface LoginProps {
   onRegisterPush: () => void;

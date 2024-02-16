@@ -1,6 +1,6 @@
 import { css } from '@linaria/core';
 
-import { TRANSITION, COLOR, SHADOW } from '../vars';
+import { COLOR, SHADOW, TRANSITION } from '../vars';
 
 export default css`
   ${COLOR.ACCENT}: #44dbc8;

@@ -1,5 +1,5 @@
 import { api } from 'api/index';
-import type { BaseApi, ApiOptions, Builder } from 'api/types';
+import type { ApiOptions, BaseApi, Builder } from 'api/types';
 
 import type { AuthValues } from 'modules/auth/types';
 

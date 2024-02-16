@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Container, Circular, Circle, Text } from './styled';
+import { Circle, Circular, Container, Text } from './styled';
 
 export interface LoadingProps {
   inverseColor?: boolean;

@@ -4,7 +4,7 @@ import useCombinedRefs from 'uikit/utils/hooks/useCombinedRefs';
 
 import Loading from '../Loading/Loading';
 
-import { Wrapper, Loader, Content, VARIANTS } from './styled';
+import { Content, Loader, VARIANTS, Wrapper } from './styled';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {

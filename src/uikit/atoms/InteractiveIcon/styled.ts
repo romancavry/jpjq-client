@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-import { COLOR, TRANSITION, HELPER } from 'uikit/vars';
+import { COLOR, HELPER, TRANSITION } from 'uikit/vars';
 
 export const SIZES = {
   m: 40,

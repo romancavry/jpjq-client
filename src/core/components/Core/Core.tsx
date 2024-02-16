@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Outlet } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { Outlet } from 'react-router-dom';
 
 import { ErrorBoundary } from 'core/components';
 
-import { variables } from 'uikit/theme';
 import { AlertProvider } from 'uikit/molecules';
+import { variables } from 'uikit/theme';
 
 import './globals.css';
 

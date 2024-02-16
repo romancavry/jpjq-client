@@ -1,5 +1,5 @@
-import { setIn } from 'final-form';
 import * as Yup from 'yup';
+import { setIn } from 'final-form';
 
 export const validate = async (
   values: unknown,

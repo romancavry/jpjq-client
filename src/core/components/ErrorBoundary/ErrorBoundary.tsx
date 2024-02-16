@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { ClientError } from 'screens/Errors/components';
 
 interface ErrorBoundaryState {

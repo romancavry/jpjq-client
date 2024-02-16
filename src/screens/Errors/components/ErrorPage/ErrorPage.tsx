@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 import { variables } from 'uikit/theme';
 
-import { Wrapper, Text, Actions } from './styled';
+import { Actions, Text, Wrapper } from './styled';
 
 interface ErrorPageProps {
   title: string;

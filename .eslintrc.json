@@ -96,9 +96,46 @@
     "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "@typescript-eslint/no-use-before-define": 0,
-    "@typescript-eslint/no-non-null-assertion": 0
+    "@typescript-eslint/no-non-null-assertion": 0,
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   },
-  "plugins": ["react", "react-hooks", "import", "babel"],
+  "overrides": [
+    {
+      "files": ["*.js", "*.jsx", "*.ts", "*.tsx"],
+      "rules": {
+        "simple-import-sort/imports": [
+          "error",
+          {
+            "groups": [
+              ["^[A-Za-z]+$", "^react", "^@?\\w"],
+
+              ["^(@|api)(/.*|$)"],
+
+              ["^(@|core)(/.*|$)"],
+              
+              ["^(@|modules)(/.*|$)"],
+              
+              ["^(@|uikit)(/.*|$)"],
+              
+              ["^(@|components)(/.*|$)"],
+              
+              ["^(@|assets)(/.*|$)"],
+              
+              ["^(@|utils)(/.*|$)"],
+
+              // Parent imports. Put `..` last.
+              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+              
+              // Put same-folder imports and `.` last.
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"]              
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "plugins": ["react", "react-hooks", "import", "babel", "simple-import-sort"],
   "settings": {
     "import/parser": "babel-eslint",
     "import/resolve": {

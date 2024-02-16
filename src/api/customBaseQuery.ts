@@ -1,9 +1,8 @@
 import axios from 'axios';
+import type { BaseQueryFn } from '@reduxjs/toolkit/query';
+import type { AxiosError, AxiosRequestConfig } from 'axios';
 import camelcaseKeys from 'camelcase-keys';
 import snakecaseKeys from 'snakecase-keys';
-
-import type { AxiosRequestConfig, AxiosError } from 'axios';
-import type { BaseQueryFn } from '@reduxjs/toolkit/query';
 
 export type RequestErrorItem = {
   code: string;

@@ -7,7 +7,6 @@ import { User } from 'assets/icons/20';
 
 import type { NagivationItem } from './components/Navigation/Navigation';
 import { Header, Navigation } from './components';
-
 import { Wrapper } from './styled';
 
 const My = () => {

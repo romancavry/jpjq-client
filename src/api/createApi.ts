@@ -1,8 +1,7 @@
 import { createApi as createRtkApi } from '@reduxjs/toolkit/query/react';
 
-import { customBaseQuery } from './customBaseQuery';
 import { TAG_TYPES } from './constants';
-
+import { customBaseQuery } from './customBaseQuery';
 import type { ApiOptions } from './types';
 
 export const createApi = (options: ApiOptions) => {

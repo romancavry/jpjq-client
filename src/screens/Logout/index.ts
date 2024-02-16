@@ -1,5 +1,5 @@
-import { redirect } from 'react-router-dom';
 import type { ErrorResponse, PathRouteProps } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 
 import { api } from 'api/index';
 import { store } from 'api/store';

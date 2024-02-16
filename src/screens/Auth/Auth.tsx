@@ -9,7 +9,7 @@ import { Button } from 'uikit/atoms';
 import { ArrowRight } from 'assets/icons/20';
 
 import { Login, Register } from './components';
-import { Header, Title, Wrapper, linkStyle, Main } from './styled';
+import { Header, linkStyle, Main, Title, Wrapper } from './styled';
 
 const Auth = () => {
   const { type } = useParams();

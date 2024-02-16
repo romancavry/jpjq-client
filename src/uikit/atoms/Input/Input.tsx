@@ -3,9 +3,9 @@ import * as React from 'react';
 import useCombinedRefs from 'uikit/utils/hooks/useCombinedRefs';
 
 import {
-  InputWrapper,
   GroupControl,
   InputControl as Control,
+  InputWrapper,
   Label,
   RightActions,
 } from './styled';

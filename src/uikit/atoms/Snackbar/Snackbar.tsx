@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Close } from 'assets/icons/40';
 
-import { Wrapper, Text, Title, Msg, CloseIcon, VARIANTS } from './styled';
+import { CloseIcon, Msg, Text, Title, VARIANTS, Wrapper } from './styled';
 
 export interface SnackbarProps {
   title: string;

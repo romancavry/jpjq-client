@@ -1,9 +1,9 @@
-import type { Api as RtkApi } from '@reduxjs/toolkit/query';
 import type { EndpointBuilder } from '@reduxjs/toolkit/dist/query/endpointDefinitions';
+import type { Api as RtkApi } from '@reduxjs/toolkit/query';
 
-import { customBaseQuery } from './customBaseQuery';
-import type { RequestError } from './customBaseQuery';
 import { TAG_TYPES } from './constants';
+import type { RequestError } from './customBaseQuery';
+import { customBaseQuery } from './customBaseQuery';
 
 export type { RequestError };
 

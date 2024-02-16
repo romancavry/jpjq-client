@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
 import type { To } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-import { Wrapper, List, Item, Content, Icon, Title } from './styled';
+import { Content, Icon, Item, List, Title, Wrapper } from './styled';
 
 export interface NagivationItem {
   id: string;

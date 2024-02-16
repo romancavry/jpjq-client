@@ -9,13 +9,13 @@ import { Button } from 'uikit/atoms';
 import { Market } from 'assets/img';
 
 import {
-  Wrapper,
   Background,
-  Main,
-  Title,
-  Subtitle,
   linkStyle,
+  Main,
   Register,
+  Subtitle,
+  Title,
+  Wrapper,
 } from './styled';
 
 const Home = () => {

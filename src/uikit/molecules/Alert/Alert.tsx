@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { toast, ToastContainer, Slide } from 'react-toastify';
+import { Slide, toast, ToastContainer } from 'react-toastify';
 
 import { Snackbar } from 'uikit/atoms';
 

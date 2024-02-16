@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { getRandomIndex } from 'modules/common';
 
-import { Wrapper, Image, Initials, colors } from './styled';
+import { colors, Image, Initials, Wrapper } from './styled';
 
 export interface AvatarProps {
   src?: string;

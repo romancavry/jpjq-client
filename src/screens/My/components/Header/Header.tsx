@@ -8,7 +8,7 @@ import { Button } from 'uikit/atoms';
 
 import { Avatar } from 'components/Avatar';
 
-import { Wrapper, User, Name } from './styled';
+import { Name, User, Wrapper } from './styled';
 
 const Header = () => {
   const { data } = useAuth();

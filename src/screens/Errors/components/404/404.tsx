@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { ErrorPage } from 'screens/Errors/components';
 
 const Error404: React.FC = () => (
