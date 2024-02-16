@@ -1,13 +1,35 @@
-import { Wrapper } from './styled';
+import { Currencies } from './components';
+import { Card, CardTitle, Columns, Wrapper } from './styled';
 
-const Accounting = () => {
-  console.log('Accounting');
+const Accounting = () => (
+  <Wrapper>
+    <Card>
+      <CardTitle>Ваш доход</CardTitle>
 
-  return (
-    <Wrapper>
-      <p>Accounting</p>
-    </Wrapper>
-  );
-};
+      <Columns
+        items={[
+          {
+            title: 'Торговые пары',
+            flex: true,
+          },
+          {
+            title: 'Последняя цена',
+            flex: true,
+          },
+          {
+            title: 'Цена покупки',
+            flex: true,
+          },
+          {
+            title: 'Изменение',
+            width: 90,
+          },
+        ]}
+      />
+
+      <Currencies />
+    </Card>
+  </Wrapper>
+);
 
 export default Accounting;

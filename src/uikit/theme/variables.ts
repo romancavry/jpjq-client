@@ -11,6 +11,7 @@ export default css`
 
   ${COLOR.BG}: #F8F9FA;
   ${COLOR.BG_2}: #2c4a90;
+  ${COLOR.BG_3}: #f5f7fa;
 
   ${COLOR.PALE}: #CFD8DC;
   ${COLOR.ERROR}: #F55252;

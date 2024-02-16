@@ -7,8 +7,9 @@ export const Wrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  padding: 15px 20px;
+  padding: 10px 15px;
 
+  background: var(${COLOR.WHITE});
   border-bottom: 1px solid var(${COLOR.PALE});
 `;
 

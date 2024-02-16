@@ -62,6 +62,16 @@ const SMALL_1 = `
   line-height: 14px;
 `;
 
+const TH = `
+  ${PRIMARY_FONT};
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 15px;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+`;
+
 const MAIN_BOLD = `
   ${MAIN};
   font-weight: 600;
@@ -80,6 +90,8 @@ export default {
   MEDIUM_2,
 
   SMALL_1,
+
+  TH,
 
   PRIMARY_FONT,
 };

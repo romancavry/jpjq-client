@@ -7,6 +7,7 @@ export default {
 
   BG: '--color-bg',
   BG_2: '--color-bg-2',
+  BG_3: '--color-bg-3',
 
   PALE: '--color-pale',
   ERROR: '--color-error',
