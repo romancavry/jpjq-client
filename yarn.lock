@@ -996,6 +996,13 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
+"@types/react-collapse@^5.0.4":
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/@types/react-collapse/-/react-collapse-5.0.4.tgz#1b3e52557c8f85b3d4c4a7d073d4c2437fa2e2a0"
+  integrity sha512-tM5cVB6skGLneNYnRK2E3R56VOHguSeJQHslGPTIMC58ytL3oelT8L/l1onkwHGn5vSEs2BEq2Olzrur+YdliA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-dom@^18.2.7":
   version "18.2.7"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.2.7.tgz#67222a08c0a6ae0a0da33c3532348277c70abb63"
@@ -3437,6 +3444,11 @@ quick-lru@^6.1.1:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-6.1.2.tgz#e9a90524108629be35287d0b864e7ad6ceb3659e"
   integrity sha512-AAFUA5O1d83pIHEhJwWCq/RQcRukCkn/NSm2QsTEMle5f2hP0ChI2+3Xb051PZCkLryI/Ir1MVKviT2FIloaTQ==
+
+react-collapse@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/react-collapse/-/react-collapse-5.1.1.tgz#a2fa08ef13f372141b02e6a7d49ef72427bcbc2b"
+  integrity sha512-k6cd7csF1o9LBhQ4AGBIdxB60SUEUMQDAnL2z1YvYNr9KoKr+nDkhN6FK7uGaBd/rYrYfrMpzpmJEIeHRYogBw==
 
 react-dom@^18.2.0:
   version "18.2.0"

@@ -1,8 +1,8 @@
 import { styled } from '@linaria/react';
 
-import { COLOR, MEDIA } from 'uikit/vars';
+import { COLOR, MEDIA, TEXT } from 'uikit/vars';
 
-export default styled.div`
+export const Card = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -15,7 +15,23 @@ export default styled.div`
     flex-direction: row;
   }
 
+  &[data-with-margin] {
+    margin-bottom: 20px;
+  }
+
   @media (min-width: ${MEDIA.DESKTOP_1}) {
     padding: 30px;
+  }
+`;
+
+export const CardTitle = styled.h4`
+  margin-bottom: 24px;
+
+  ${TEXT.H4};
+  font-weight: 600;
+  color: var(${COLOR.MAIN});
+
+  &[data-no-margin] {
+    margin-bottom: 0;
   }
 `;

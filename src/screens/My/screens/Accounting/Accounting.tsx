@@ -1,28 +1,36 @@
-import { Currencies } from './components';
-import { Card, CardTitle, Columns, Wrapper } from './styled';
+import { Helmet } from 'react-helmet';
+
+import { Card, CardTitle } from 'components/Card';
+import { Columns } from 'components/Columns';
+
+import { Currencies, Entering } from './components';
+import { columnStyle, Wrapper } from './styled';
 
 const Accounting = () => (
   <Wrapper>
+    <Helmet>
+      <title>Учет</title>
+    </Helmet>
+
+    <Entering />
+
     <Card>
       <CardTitle>Ваш доход</CardTitle>
 
       <Columns
+        className={columnStyle}
         items={[
           {
             title: 'Торговые пары',
-            flex: true,
           },
           {
             title: 'Последняя цена',
-            flex: true,
           },
           {
             title: 'Цена покупки',
-            flex: true,
           },
           {
             title: 'Изменение',
-            width: 90,
           },
         ]}
       />

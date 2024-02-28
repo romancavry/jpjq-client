@@ -63,7 +63,7 @@ export const controlStyle = `
 `;
 
 const inputHover = `
-  border-color: var(${COLOR.ACCENT});
+  border-color: var(${COLOR.MAIN_PALE});
   background: var(${COLOR.WHITE});
   cursor: text;
 `;
