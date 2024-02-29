@@ -11,6 +11,7 @@ export const Wrapper = styled.nav`
   width: 100%;
   height: ${NAV_MENU_HEIGHT}px;
 
+  background: var(${COLOR.WHITE});
   border-top: 1px solid var(${COLOR.PALE});
 `;
 

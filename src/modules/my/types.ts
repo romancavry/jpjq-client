@@ -1,5 +1,6 @@
 export interface EnteringValues {
   currency: string;
-  marketPrice: string;
-  buyPrice: string;
+  amount: number | null;
+  buyPriceRub: number | null;
+  buyDate: string;
 }

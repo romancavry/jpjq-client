@@ -1,6 +1,6 @@
 import { Field } from 'react-final-form';
 
-import { Input, Select } from 'components/Form';
+import { DatePicker, Input, Select } from 'components/Form';
 
 import { Wrapper } from './styled';
 
@@ -9,16 +9,34 @@ const Form = () => (
     <Field
       name='currency'
       component={Select}
-      label='Валюта'
+      label='Монета'
+      placeholder='Выберите монету из списка'
       options={[
-        { title: 'aboba', value: 'aboba' },
-        { title: 'aboba2', value: 'aboba2' },
+        { title: 'Aptos', value: 'APT' },
+        { title: 'Bitcoin', value: 'BTC' },
       ]}
     />
 
-    <Field name='marketPrice' component={Input} label='Рыночная цена' />
+    <Field
+      name='amount'
+      component={Input}
+      label='Кол-во монет'
+      placeholder='Укажите кол-во купленных монет'
+    />
 
-    <Field name='buyPrice' component={Input} label='Кол-во' />
+    <Field
+      name='buyPriceRub'
+      component={Input}
+      label='Сумма в рублях'
+      placeholder='Введите сумму покупки в ₽'
+    />
+
+    <Field
+      name='buyDate'
+      component={DatePicker}
+      label='Дата покупки'
+      placeholder='Укажите дату покупки'
+    />
   </Wrapper>
 );
 
