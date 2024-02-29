@@ -1,12 +1,20 @@
 import { Field } from 'react-final-form';
 
-import { Input } from 'components/Form';
+import { Input, Select } from 'components/Form';
 
 import { Wrapper } from './styled';
 
 const Form = () => (
   <Wrapper>
-    <Field name='currency' component={Input} label='Валюта' />
+    <Field
+      name='currency'
+      component={Select}
+      label='Валюта'
+      options={[
+        { title: 'aboba', value: 'aboba' },
+        { title: 'aboba2', value: 'aboba2' },
+      ]}
+    />
 
     <Field name='marketPrice' component={Input} label='Рыночная цена' />
 
