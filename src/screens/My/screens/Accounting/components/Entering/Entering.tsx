@@ -1,12 +1,16 @@
 import * as React from 'react';
 import { Form as FinalForm } from 'react-final-form';
 
+import { api } from 'api/index';
+
 import { ENTERING_VALUES, type EnteringValues } from 'modules/my';
 
 import { Actions, Button } from 'uikit/atoms';
-import { Collapse } from 'uikit/molecules';
+import { alert, Collapse } from 'uikit/molecules';
 
 import { CardTitle } from 'components/Card';
+
+import { getError } from 'utils/errorUtils';
 
 import { Form } from './components';
 import {
@@ -15,12 +19,29 @@ import {
   collapseStyle,
   CollapseTitle,
 } from './styled';
+import validation from './validation';
 
 const Entering = () => {
-  const onSubmit = React.useCallback((values: EnteringValues) => {
-    // eslint-disable-next-line no-console
-    console.log('onSubmit values: ', values);
-  }, []);
+  const [createTransaction] = api.useCreateTransactionMutation();
+
+  const onSubmit = React.useCallback(
+    async (values: EnteringValues) => {
+      try {
+        await createTransaction(values).unwrap();
+
+        alert.success({
+          title: 'Транзакция успешно добавлена!',
+        });
+      } catch (err) {
+        const error = getError(err);
+
+        alert.error({
+          title: error.msg,
+        });
+      }
+    },
+    [createTransaction],
+  );
 
   return (
     <Collapse
@@ -36,12 +57,17 @@ const Entering = () => {
       <FinalForm
         initialValues={ENTERING_VALUES}
         onSubmit={onSubmit}
-        render={({ handleSubmit }) => (
+        validate={validation()}
+        render={({ handleSubmit, valid }) => (
           <div>
             <Form />
 
             <Actions withMargin>
-              <Button variant='primary' onClick={handleSubmit}>
+              <Button
+                variant='primary'
+                onClick={handleSubmit}
+                disabled={!valid}
+              >
                 Отправить
               </Button>
             </Actions>

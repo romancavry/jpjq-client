@@ -1,5 +1,5 @@
 export interface EnteringValues {
-  currency: string;
+  slug: string;
   amount: number | null;
   buyPriceRub: number | null;
   buyDate: string;

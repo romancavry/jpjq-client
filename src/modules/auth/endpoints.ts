@@ -14,7 +14,7 @@ export const getAuthEndpoints = (
 ) => ({
   register: builder.mutation<void, AuthValues>({
     query: data => ({
-      host: 'http://127.0.0.1:1337',
+      host: import.meta.env.VITE_API_URL,
       path: '/auth/register',
       method: 'POST',
       data,
@@ -35,7 +35,7 @@ export const getAuthEndpoints = (
 
   login: builder.mutation<void, AuthValues>({
     query: data => ({
-      host: 'http://127.0.0.1:1337',
+      host: import.meta.env.VITE_API_URL,
       path: '/auth/login',
       method: 'POST',
       data,
@@ -56,7 +56,7 @@ export const getAuthEndpoints = (
 
   logout: builder.query<void, void>({
     query: () => ({
-      host: 'http://127.0.0.1:1337',
+      host: import.meta.env.VITE_API_URL,
       path: '/auth/logout',
       method: 'GET',
     }),
@@ -76,7 +76,7 @@ export const getAuthEndpoints = (
 
   getUser: builder.query<User, void>({
     query: () => ({
-      host: 'http://127.0.0.1:1337',
+      host: import.meta.env.VITE_API_URL,
       path: '/auth/user',
       method: 'GET',
     }),
