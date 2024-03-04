@@ -3,6 +3,9 @@ import {
   createRoutesFromElements,
   Route,
 } from 'react-router-dom';
+
+import { Core } from 'core/components';
+
 import Auth from 'screens/Auth';
 import Errors from 'screens/Errors/Errors';
 import Home from 'screens/Home';
@@ -10,8 +13,6 @@ import Logout from 'screens/Logout';
 import My from 'screens/My';
 import Accounting from 'screens/My/screens/Accounting';
 import Stock from 'screens/My/screens/Stock';
-
-import { Core } from 'core/components';
 
 import { AuthorizedOnly, loadAuth, UnauthorizedOnly } from 'utils/auth';
 

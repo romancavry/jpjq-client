@@ -27,7 +27,10 @@ const Form = () => {
     const options: OptionType[] = [];
 
     Object.values(currenciesBySlug).forEach(currency => {
-      options.push({ title: currency.name, value: currency.slug });
+      options.push({
+        title: currency.name,
+        value: currency.symbol.toLowerCase(),
+      });
     });
 
     return options;
@@ -51,6 +54,7 @@ const Form = () => {
         label='Монета'
         placeholder='Выберите монету из списка'
         options={slugOptions}
+        withSearch
       />
 
       <Field

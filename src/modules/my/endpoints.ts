@@ -1,7 +1,7 @@
-// import { api } from 'api/index';
+import { TAG_TYPES } from 'api/constants';
 import type { ApiOptions, BaseApi, Builder } from 'api/types';
 
-import type { EnteringValues } from './types';
+import type { EnteringValues, Transaction } from './types';
 
 export const getMyEndpoints = (
   builder: Builder,
@@ -18,17 +18,15 @@ export const getMyEndpoints = (
       data,
       noParseData: true,
     }),
-    // onQueryStarted(_, { dispatch, queryFulfilled }) {
-    //   queryFulfilled.then(({ data }) => {
-    //     // Update current user
-    //     dispatch(
-    //       api.util.upsertQueryData(
-    //         'getUser',
-    //         undefined,
-    //         data as unknown as User,
-    //       ),
-    //     );
-    //   });
-    // },
+    invalidatesTags: [TAG_TYPES.TRANSACTIONS],
+  }),
+
+  getTransactions: builder.query<{ data: Transaction[] }, void>({
+    query: () => ({
+      host: import.meta.env.VITE_API_URL,
+      path: '/accounting',
+      method: 'GET',
+    }),
+    providesTags: [TAG_TYPES.TRANSACTIONS],
   }),
 });

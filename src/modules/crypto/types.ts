@@ -1,9 +1,6 @@
-import { CURRENCY_TYPE, CURRENCY_VALUE } from './constants';
+import { CURRENCY_TYPE } from './constants';
 
 export type CurrencyType = (typeof CURRENCY_TYPE)[keyof typeof CURRENCY_TYPE];
-
-export type CurrencyValue =
-  (typeof CURRENCY_VALUE)[keyof typeof CURRENCY_VALUE];
 
 export interface CurrencyValueItem {
   price: number;
@@ -41,7 +38,7 @@ export interface Currency {
   circulatingSupply: number;
   totalSupply: number;
   maxSupply: number;
-  values: Record<CurrencyValue, CurrencyValueItem>;
+  values: Record<string, CurrencyValueItem>;
   lastUpdated: string;
   tokens: CurrencyToken[];
 }

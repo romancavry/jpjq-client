@@ -10,3 +10,11 @@ export const withEmptyOption = (options: OptionType[], emptyText?: string) => [
   },
   ...options,
 ];
+
+export const roundNumber = ({
+  number,
+  toFixed,
+}: {
+  number: number;
+  toFixed: number;
+}) => Number(number.toFixed(toFixed));

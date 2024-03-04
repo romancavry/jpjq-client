@@ -2,12 +2,6 @@ import { styled } from '@linaria/react';
 
 import { COLOR, TEXT } from 'uikit/vars';
 
-export const Table = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
-
 export const Item = styled.li`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 90px;
