@@ -1,3 +1,3 @@
 export const TAG_TYPES = {
-  myPosts: 'MY_POSTS',
+  EXAMPLE: 'EXAMPLE',
 } as const;

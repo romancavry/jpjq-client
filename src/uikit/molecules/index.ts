@@ -4,3 +4,4 @@ export { default as Collapse } from './Collapse/Collapse';
 export { default as DatePicker } from './DatePicker/DatePicker';
 export { default as OpeningArrow } from './OpeningArrow/OpeningArrow';
 export { default as Select } from './Select/Select';
+export * from './Select/types';

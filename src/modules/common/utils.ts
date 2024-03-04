@@ -1,4 +1,4 @@
-import { OptionType } from 'uikit/molecules/Select/types';
+import type { OptionType } from 'uikit/molecules';
 
 export const getRandomIndex = (length: number) =>
   Math.floor(Math.random() * length);
