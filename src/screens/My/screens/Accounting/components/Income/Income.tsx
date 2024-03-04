@@ -1,7 +1,9 @@
 import * as React from 'react';
 
 import { api } from 'api/index';
+import { useAppSelector } from 'api/store';
 
+import { getCurrenciesBySlug } from 'modules/crypto/selectors';
 import type { Transaction as TransactionType } from 'modules/my';
 
 import { CardTitle } from 'components/Card';
@@ -12,6 +14,8 @@ import { Transaction } from './components';
 import { columnStyle, List, Wrapper } from './styled';
 
 const Income = () => {
+  const currenciesBySlug = useAppSelector(getCurrenciesBySlug);
+
   const { data, isLoading: loading } = api.useGetTransactionsQuery();
   const transactions: TransactionType[] = data ? data.data : [];
 
@@ -22,7 +26,7 @@ const Income = () => {
     <Wrapper>
       <CardTitle>Ваш доход</CardTitle>
 
-      {transactions.length ? (
+      {transactions.length && Object.keys(currenciesBySlug).length ? (
         <React.Fragment>
           <Columns
             className={columnStyle}
